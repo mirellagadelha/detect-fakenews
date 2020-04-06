@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Detector de Fake News</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body id="preview">
+    <h1 class="code-line" data-line-start=0 data-line-end=1><a id="Detector_de_Fake_News_0"></a>Detector de Fake News</h1>
+    <h3 class="code-line" data-line-start=2 data-line-end=3><a id="POST_httpsfakenewsdetecttccappspotcomresponse_2"></a>POST <a href="https://fakenews-detect-tcc.appspot.com/response">https://fakenews-detect-tcc.appspot.com/response</a></h3>
+    <p class="has-line-data" data-line-start="4" data-line-end="5">HEADERS</p>
+    <pre><code class="has-line-data" data-line-start="6" data-line-end="8" class="language-sh">Content-Type application/json
+</code></pre>
+    <p class="has-line-data" data-line-start="9" data-line-end="10">BODY</p>
+    <pre><code class="has-line-data" data-line-start="11" data-line-end="15" class="language-sh">{
+    <span class="hljs-string">"news"</span>: <span class="hljs-string">"Lula não se conforma e diz que foi traído pelo deputado palhaço.  O jornal O Tempo publicou uma notícia no mínimo curiosa.  Durante algumas horas,  em uma manhã de domingo,  o hotel Golden Tulip (em Brasília) se tornou um picadeiro e promoveu um encontro de 'ícones circenses' Lula comentou com Dilma que havia recebido o palhaço Tiririca em sua suíte de hotel,  ou seja,  em seu gabinete clandestino onde tentava comprar votos para tentar salvar Dilma. 'Ele esteve comigo hoje. Como ele faz isso? Ele ia votar com a gente'. Lula desabafou inconformado ao assistir ao voto de Tiririca (PR-SP),  que foi favorável abertura do processo de impeachment. Em dois mandatos,  foi a primeira vez que o 'palhaço' fez uso do microfone do plenário da Câmara. ps: O palhaço a quem nos referimos é o Tiririca. Não confundam alhos com bugalhos!"</span>
+}
+</code></pre>
+    <p class="has-line-data" data-line-start="16" data-line-end="17">Exemplo de requisição (HTTP)</p>
+    <pre><code class="has-line-data" data-line-start="19" data-line-end="27" class="language-sh">POST /response HTTP/<span class="hljs-number">1.1</span>
+Host: fakenews-detect-tcc.appspot.com
+Content-Type: application/json
+
+{
+    <span class="hljs-string">"news"</span>: <span class="hljs-string">"data"</span>
+}
+</code></pre>
+</body>
+
+</html>
