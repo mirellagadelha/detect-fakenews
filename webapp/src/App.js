@@ -15,9 +15,7 @@ function App() {
   const [hidden, setHidden] = useState(true);
 
   function detectNews(news) {
-    const formatNews = news.replace(/['"]+/g, "'");
-
-    ApiDetect.detectNews(formatNews).then(({ data }) => {
+    if (news.length  > 0 && news.length < 100){
       setMessage([
         ...messages,
         {
@@ -29,11 +27,32 @@ function App() {
         {
           id: messages.length + 1,
           isBoot: true,
-          text: data.message,
+          text: "O texto enviado é muito pequeno! O texto deve ter pelo menos 100 caracteres. Por favor, insira o texto completo da notícia na caixa abaixo.",
           hour: `${currentDate()}, Hoje`,
         },
       ]);
-    });
+    }else{
+      const formatNews = news.replace(/['"]+/g, "'");
+
+      ApiDetect.detectNews(formatNews).then(({ data }) => {
+        setMessage([
+          ...messages,
+          {
+            id: messages.length + 1,
+            isBoot: false,
+            text: news,
+            hour: `${currentDate()}, Hoje`,
+          },
+          {
+            id: messages.length + 1,
+            isBoot: true,
+            text: data.message,
+            hour: `${currentDate()}, Hoje`,
+          },
+        ]);
+      });
+    }
+
     setValue("");
   }
 
